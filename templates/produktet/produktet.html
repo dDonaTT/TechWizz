@@ -1,0 +1,98 @@
+{%extends 'base.html'%}
+{% block content%}
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Produktet Tona</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li class="active">Produktet</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="featured-car content-area">
+    <div class="container">
+
+        <div class="main-title">
+        </div>
+        <div class="row">
+            {% for produktet in full_produktet %}
+               <div class="col-lg-4 col-md-6">
+                   <div class="car-box">
+                       <div class="car-thumbnail">
+                           <a href="{% url 'produktet_detail' produktet.id %}" class="car-img">
+                               <div class="tag">For Sale</div>
+                               <img class="d-block w-100" src="{{produktet.fotografia.url}}" alt="" style="min-height: 260px; max-height:260px; ">
+                           </a>
+                           <div class="carbox-overlap-wrapper">
+                               <div class="overlap-box">
+                                   <div class="overlap-btns-area">
+                                       <div class="car-magnify-gallery">
+                                           <a href="{{produktet.fotografia.url}}" class="overlap-btn">
+                                               <i class="fa fa-expand"></i>
+                                               <img class="hidden" src="{{produktet.fotografia.url}}">
+                                           </a>
+                                           {% if produktet.foto1.url%}
+                                           <a href="{{produktet.foto1.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto1.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto2.url%}
+                                           <a href="{{produktet.foto2.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto2.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto3.url%}
+                                           <a href="{{produktet.foto3.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto3.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto4.url%}
+                                           <a href="{{produktet.foto4.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto4.url}}">
+                                           </a>
+                                           {% endif%}
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="detail">
+                           <h1 class="title">
+                               <a href="{% url 'produktet_detail' produktet.id %}">{{produktet.emri_produktit}}</a>
+                           </h1>
+                       </div>
+                       <div class="footer clearfix">
+
+                           <div class="pull-right">
+                               <p class="price">${{produktet.qmimi}}</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               {% endfor %}
+        </div>
+    </div>
+</div>
+                <div class="pagination-box p-box-2 text-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
+                            </li>
+                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

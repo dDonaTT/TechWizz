@@ -1,0 +1,184 @@
+{%extends 'base.html' %}
+{% block content%}
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>{{produkt.emri_produktit}}</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li class="active">{{produkt.modeli}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="car-details-page content-area-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-xs-12">
+                <div class="car-details-section">
+                    <div class="heading-car clearfix">
+                        <div class="pull-left">
+                            <h3>{{produkt.modeli}}</h3>
+                        </div>
+                        <div class="pull-right">
+                            <h3><span>${{produkt.qmimi}}</span></h3>
+                        </div>
+                    </div>
+                    <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="{{produkt.fotografia.url}}" class="img-fluid" alt=""style="min-height: 650px; max-height:650px;">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="1">
+                                <img src="{{produkt.foto1.url}}" class="img-fluid" alt=""style="min-height: 650px; max-height:650px;">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="2">
+                                <img src="{{produkt.foto2.url}}" class="img-fluid" alt=""style="min-height: 650px; max-height:650px;">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="3">
+                                <img src="{{produkt.foto3.url}}" class="img-fluid" alt=""style="min-height: 650px; max-height:650px;">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="4">
+                                <img src="{{produkt.foto4.url}}" class="img-fluid" alt=""style="min-height: 650px; max-height:650px;">
+                            </div>
+
+                        </div>
+
+                        <div class="carousel-indicators-section clearfix">
+                            <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                                <li class="list-inline-item active">
+                                    <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
+                                        <img src="{{produkt.fotografia.url}}" class="img-fluid" alt="" style="min-height: 130px; max-height:130px;">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-2" data-slide-to="1" data-target="#carDetailsSlider">
+                                        <img src="{{produkt.foto1.url}}" class="img-fluid" alt="" style="min-height: 130px; max-height:130px;">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                                        <img src="{{produkt.foto2.url}}" class="img-fluid" alt="" style="min-height: 130px; max-height:130px;">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-3" data-slide-to="3" data-target="#carDetailsSlider">
+                                        <img src="{{produkt.foto3.url}}" class="img-fluid" alt="" style="min-height: 130px; max-height:130px;">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a id="carousel-selector-4" data-slide-to="4" data-target="#carDetailsSlider">
+                                        <img src="{{produkt.foto4.url}}" class="img-fluid" alt="" style="min-height:130px; max-height:130px;">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="tabbing tabbing-box mb-40">
+                        <ul class="nav nav-tabs" id="carTab" role="tablist">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Features</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="carTabContent">
+                            <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                
+                            </div>
+                            <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
+                                <div class="features-info mb-50">
+                                    <h3 class="heading-2">Features</h3>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <ul>
+                                                <li>
+                                                   {{produkt.emri_produktit}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.modeli}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.procesori}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.kartela_grafike}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.rami}}
+                                                </li>
+                                                <li>
+                                                   {{produkt.memoria}} SSD
+                                                </li>
+                                                <li>
+                                                    {{produkt.ekrani}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.rezolucion}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.pesha}}
+                                                </li>
+                                                <li>
+                                                    {{produkt.lloji_panelit}}
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="sidebar-right">
+                    <div class="widget advanced-search d-none-992">
+
+                        <h3 class="sidebar-title">Specifikat</h3>
+                        <ul>
+                            <li>
+                                <span>Brendi:</span>{{produkt.emri_produktit}}
+                            </li>
+                            <li>
+                                <span>Seria:</span>	{{produkt.modeli}}
+                            </li>
+                            <li>
+                                <span>Ekrani:</span>{{produkt.ekrani}}
+                            </li>
+                            <li>
+                                <span>CPU:</span>{{produkt.procesori}}
+                            </li>
+                            <li>
+                                <span>KartelaGrafike:</span>{{produkt.kartela_grafike}}
+                            </li>
+                            <li>
+                                <span>SSD:</span>{{produkt.memoria}}
+                            </li>
+                            <li>
+                                <span>RAM:</span>{{produkt.rami}}
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="widget question">
+                        <div class="social-list clearfix">
+                            <ul>
+                                <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://github.com/dDonaTT" class="rss-bg"><i class="fa fa-github"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/donat-shala-15339a26a/" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}

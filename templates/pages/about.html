@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{% load static%}
+{% block content%}
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>About Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">About Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="about-car content-area-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6">
+                <div class="about-car-photo">
+                    <div id="carDetailsSlider" class="carousel car-details-sliders slide">
+
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="{% static 'img/img1.jfif'%}" class="img-fluid" alt="">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="1">
+                                <img src="{% static 'img/img2.jpg'%}" class="img-fluid" alt="">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="2">
+                                <img src="{% static 'img/img3.jpg'%}" class="img-fluid" alt="">
+                            </div>
+                        </div>
+
+                        <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                            <li class="list-inline-item active">
+                                <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
+                                    <img src="{% static 'img/img1.jfif'%}" class="img-fluid">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-1" data-slide-to="1" data-target="#carDetailsSlider">
+                                    <img src="{% static 'img/img2.jpg'%}" class="img-fluid">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                                    <img src="{% static 'img/img3.jpg'%} "class="img-fluid">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 align-self-center">
+                <div class="best-used-car">
+                    <h3>Mir se vini ne<span> TechWizz</span></h3>
+                    <p>Techwizz është një dyqan teknologjik i specializuar në shitjen e pajisjeve dhe aksesoreve të teknologjisë në një gamë të gjerë të kategorive, siç janë kompjuterët, laptopët</p>
+                    <p class="mb-0">Techwizz ofron një zgjedhje të gjerë të produkteve të teknologjisë, duke përfshirë pajisje dhe aksesore nga marka të ndryshme të njohura dhe të besueshme si Apple, Samsung, HP, Dell, Lenovo, ASUS, dhe shumë të tjerë. Klientët mund të gjejnë produktet e tyre të preferuara të teknologjisë në dyqanin e Techwizz ose online në faqen e tyre të internetit të përdorueshmë për blerjet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="our-team content-area">
+    <div class="container">
+
+        <div class="main-title">
+            <h1>Ekipi <span>Punues</span></h1>
+            <p>Ekipi punues që ka kontribuar ne këtë webfaqe </p>
+        </div>
+
+<div class="slick-slider-area clearfix">
+            <div class="row slick-carousel" >
+              {% for team in teams %}
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{{team.fotografia.url}}" alt="" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-github"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">{{team.emri}} {{team.mbiemri}}</a></h4>
+                            <h5>{{team.pozita}}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+           </div>
+          </div>
+    </div>
+</div>
+{% endblock content%}

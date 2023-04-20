@@ -1,0 +1,194 @@
+
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static%}
+<div class="banner" id="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner banner-slider-inner text-center">
+            <div class="carousel-item banner-max-height active item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/img3.jpg'%}" alt="">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Produktet me cilesin e pare</h3>
+                    <h5>Tek ne gjeni produktet teknologjike me te reja per<br>
+                        te cilat keni enderruar</h5>
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/img2.jpg'%}">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Eksploroj produktet e kerkuara</h3>
+
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{% static 'img/img1.jfif'%}" alt="">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Ne jemi TechWizz</h3>
+
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev none-580" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <a class="carousel-control-next none-580" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </a>
+    </div>
+</div>
+<div class="featured-car content-area-5">
+       <div class="container">
+           <div class="main-title">
+               <h1>Featured <span>Products</span></h1>
+               <p><b>Disa nga produktet tona </b></p>
+           </div>
+           <div class="slick-slider-area clearfix">
+               <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                 {% for produktet in featured_products %}
+                   <div class="slick-slide-item">
+                       <div class="car-box-3">
+                           <div class="car-thumbnail">
+                               <a href="{% url 'produktet_detail' produktet.id %}" class="car-img">
+                                   <div class="tag-2">Featured</div>
+                                   <div class="price-box">
+
+                                       <span>${{produktet.qmimi}}</span>
+                                   </div>   
+                                   <img class="d-block w-100" src="{{produktet.fotografia.url}}" alt="" style="min-height: 260px; max-height:260px;">
+                               </a>
+                               <div class="carbox-overlap-wrapper">
+                                   <div class="overlap-box">
+                                       <div class="overlap-btns-area">
+                                           <div class="car-magnify-gallery">
+                                            <a href="{{produktet.fotografia.url}}" class="overlap-btn">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="{{produktet.fotografia.url}}">
+                                            </a>
+                                            {% if produktet.foto1.url%}
+                                            <a href="{{produktet.foto1.url}}" class="hidden">
+                                                <img class="hidden" src="{{produktet.foto1.url}}">
+                                            </a>
+                                            {% endif%}
+                                             {% if produktet.foto2.url%}
+                                            <a href="{{produktet.foto2.url}}" class="hidden">
+                                                <img class="hidden" src="{{produktet.foto2.url}}">
+                                            </a>
+                                            {% endif%}
+                                             {% if produktet.foto3.url%}
+                                            <a href="{{produktet.foto3.url}}" class="hidden">
+                                                <img class="hidden" src="{{produktet.foto3.url}}">
+                                            </a>
+                                            {% endif%}
+                                             {% if produktet.foto4.url%}
+                                            <a href="{{produktet.foto4.url}}" class="hidden">
+                                                <img class="hidden" src="{{produktet.foto4.url}}">
+                                            </a>
+                                            {% endif%}
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="detail">
+                               <h1 class="title">
+                                   <a href="{% url 'produktet_detail' produktet.id %}">{{produktet.emri_produktit}}</a>
+                               </h1>
+                               <ul class="facilities-list clearfix">
+                                   <li>{{produktet.procesori}}</li>
+                                   <li>{{produktet.rami}}</li>
+                                   <li>{{produktet.memoria}}</li>
+                                   <li>{{produktet.kartela_grafike}}</li>
+                                   <li>{{produktet.ngjyra}}</li>
+
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+                {% endfor %}
+               </div>
+               <div class="slick-btn">
+                   <div class="slick-prev slick-arrow-buton sab-4">
+                       <i class="fa fa-angle-left"></i>
+                   </div>
+                   <div class="slick-next slick-arrow-buton sab-3">
+                       <i class="fa fa-angle-right"></i>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="featured-car content-area">
+       <div class="container">
+           <div class="main-title">
+               <h1>Produktet me te<span> Fundit</span></h1>
+               <p><b>Produktet me te fundit te TechWizz</b></p>
+           </div>
+           <div class="row">
+             {% for produktet in full_produktet %}
+               <div class="col-lg-4 col-md-6">
+                   <div class="car-box">
+                       <div class="car-thumbnail">
+                           <a href="{% url 'produktet_detail' produktet.id %}" class="car-img">
+                               <div class="tag">For Sale</div>
+                               <img class="d-block w-100" src="{{produktet.fotografia.url}}" alt="" style="min-height: 260px; max-height:260px; ">
+                           </a>
+                           <div class="carbox-overlap-wrapper">
+                               <div class="overlap-box">
+                                   <div class="overlap-btns-area">
+                                       <div class="car-magnify-gallery">
+                                           <a href="{{produktet.fotografia.url}}" class="overlap-btn">
+                                               <i class="fa fa-expand"></i>
+                                               <img class="hidden" src="{{produktet.fotografia.url}}">
+                                           </a>
+                                           {% if produktet.foto1.url%}
+                                           <a href="{{produktet.foto1.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto1.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto2.url%}
+                                           <a href="{{produktet.foto2.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto2.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto3.url%}
+                                           <a href="{{produktet.foto3.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto3.url}}">
+                                           </a>
+                                           {% endif%}
+                                            {% if produktet.foto4.url%}
+                                           <a href="{{produktet.foto4.url}}" class="hidden">
+                                               <img class="hidden" src="{{produktet.foto4.url}}">
+                                           </a>
+                                           {% endif%}
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="detail">
+                           <h1 class="title">
+                               <a href="">{{produktet.emri_produktit}}</a>
+                           </h1>
+                       </div>
+                       <div class="footer clearfix">
+
+                           <div class="pull-right">
+                               <p class="price">${{produktet.qmimi}}</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               {% endfor %}
+
+           </div>
+       </div>
+   </div>
+   {% endblock content %}
